@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我要打篮球-热血篮球技巧、装备指南与实战教学平台</title>
+    <meta name="description" content="我要打篮球平台提供专业的篮球技巧教学、实战战术解析、球鞋装备评测及篮球社区交流。从入门基础到进阶实战，助你提升球技，热爱永不熄灭。">
+    <meta name="keywords" content="我要打篮球,篮球技巧,篮球教学,实战篮球,球鞋评测,篮球社区">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b00; /* 篮球橙 */
+            --secondary-color: #2b2b2b; /* 深炭灰 */
+            --accent-color: #00d2ff; /* 霓虹蓝 */
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --text-sub: #666666;
+            --spacing-unit: 16px;
+            --border-radius: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #e65100;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(43, 43, 43, 0.8), rgba(0, 210, 255, 0.6)), url('https://picsum.photos/seed/basketballcourt/1920/1080.jpg') no-repeat center center/cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .hero-btn {
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn.primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .hero-btn.primary:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .hero-btn.secondary {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-btn.secondary:hover {
+            background-color: white;
+            color: var(--secondary-color);
+        }
+
+        /* 通用板块样式 */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 技巧分类 Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .skill-img {
+            height: 200px;
+            width: 100%;
+        }
+
+        .skill-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skill-tag {
+            background-color: rgba(255, 107, 0, 0.1);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            width: fit-content;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .skill-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .skill-content p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .skill-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-link:hover {
+            gap: 10px;
+        }
+
+        /* 装备展示 */
+        .gear-section {
+            background-color: white;
+        }
+
+        .gear-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .gear-image {
+            position: relative;
+        }
+
+        .gear-image img {
+            border-radius: var(--border-radius);
+            box-shadow: 20px 20px 0px rgba(0, 210, 255, 0.1);
+        }
+
+        .gear-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gear-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .gear-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+
+        .gear-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .gear-info span {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* 实战技巧专栏 */
+        .featured-article {
+            background: linear-gradient(90deg, var(--secondary-color) 0%, #1a1a1a 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .article-text {
+            flex: 1;
+        }
+
+        .article-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .article-text p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+        }
+
+        .article-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .faq-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--secondary-color);
+            color: rgba(255,255,255,0.6);
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; } /* 简化处理：移动端隐藏导航 */
+            .gear-layout { grid-template-columns: 1fr; }
+            .featured-article { flex-direction: column; padding: 30px; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .gear-image img { box-shadow: none; }
+        }
+
+        /* 动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 12L16 8" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                我要打篮球<span>.</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#skills">实战技巧</a>
+                <a href="#gear">装备指南</a>
+                <a href="#community">社区交流</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+            <a href="#" class="cta-btn">加入球队</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>我要打篮球<br><span>把热血挥洒在球场</span></h1>
+                <p>无论你是初学者还是资深玩家，这里都有适合你的训练计划、战术分析和装备推荐。从运球突破到投篮技巧，助你快速提升球技。</p>
+                <div class="hero-buttons">
+                    <a href="#skills" class="hero-btn primary">开始训练</a>
+                    <a href="#gear" class="hero-btn secondary">查看装备</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="container">
+            <div class="section-header">
+                <h2>核心技巧教学</h2>
+                <p>科学的训练方法能让你事半功倍，掌握这些基础与进阶技巧，成为球场焦点。</p>
+            </div>
+            <div class="skills-grid">
+                <!-- Card 1 -->
+                <article class="skill-card">
+                    <img src="https://picsum.photos/seed/basketballdribble/400/300.jpg" alt="运球技巧" class="skill-img">
+                    <div class="skill-content">
+                        <span class="skill-tag">基本功</span>
+                        <h3>原地运球与变向</h3>
+                        <p>掌握手指拨球而非手掌推球的技巧，学习体前变向、背后运球等基础动作，提升球感与控球稳定性。</p>
+                        <a href="#" class="skill-link">查看详情 &rarr;</a>
+                    </div>
+                </article>
+                <!-- Card 2 -->
+                <article class="skill-card">
+                    <img src="https://picsum.photos/seed/basketballjump/400/300.jpg" alt="投篮姿势" class="skill-img">
+                    <div class="skill-content">
+                        <span class="skill-tag">得分技巧</span>
+                        <h3>标准投篮姿势</h3>
+                        <p>解析投篮的手型、发力点和跟随动作。从定点投篮到接球急停跳投，建立稳定的得分能力。</p>
+                        <a href="#" class="skill-link">查看详情 &rarr;</a>
+                    </div>
+                </article>
+                <!-- Card 3 -->
+                <article class="skill-card">
+                    <img src="https://picsum.photos/seed/basketballdefense/400/300.jpg" alt="防守策略" class="skill-img">
+                    <div class="skill-content">
+                        <span class="skill-tag">团队防守</span>
+                        <h3>防守站位与滑步</h3>
+                        <p>学习正确的防守滑步（侧滑步、后撤步），掌握绕前防守和协防意识，成为让对手头疼的防守者。</p>
+                        <a href="#" class="skill-link">查看详情 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Featured Article -->
+        <div class="container">
+            <article class="featured-article">
+                <div class="article-text">
+                    <h2>实战中的心理博弈：如何阅读防守</h2>
+                    <p>篮球不仅是身体的对抗，更是智慧的较量。在实战中，学会观察对手的肩膀、眼神和重心，预判他们的移动意图，从而做出最正确的进攻选择。</p>
+                    <a href="#" class="cta-btn" style="background: white; color: var(--secondary-color);">阅读完整文章</a>
+                </div>
+                <div class="article-image">
+                    <img src="https://picsum.photos/seed/basketballgame/600/400.jpg" alt="篮球实战">
+                </div>
+            </article>
+        </div>
+
+        <!-- Gear Section -->
+        <section id="gear" class="gear-section">
+            <div class="container gear-layout">
+                <div class="gear-image">
+                    <img src="https://picsum.photos/seed/basketballshoes/800/600.jpg" alt="专业球鞋与装备">
+                </div>
+                <div class="gear-content">
+                    <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+                        <h2>装备指南</h2>
+                        <p>合适的装备能保护你的身体，提升运动表现。</p>
+                    </div>
+                    <div class="gear-list">
+                        <div class="gear-item">
+                            <div class="gear-icon">👟</div>
+                            <div class="gear-info">
+                                <h4>篮球鞋</h4>
+                                <span>缓震与支撑</span>
+                            </div>
+                        </div>
+                        <div class="gear-item">
+                            <div class="gear-icon">👕</div>
+                            <div class="gear-info">
+                                <h4>球衣</h4>
+                                <span>透气排汗</span>
+                            </div>
+                        </div>
+                        <div class="gear-item">
+                            <div class="gear-icon">🩹</div>
+                            <div class="gear-info">
+                                <h4>护具</h4>
+                                <span>关节保护</span>
+                            </div>
+                        </div>
+                        <div class="gear-item">
+                            <div class="gear-icon">🏀</div>
+                            <div class="gear-info">
+                                <h4>篮球</h4>
+                                <span>内场外场</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <a href="#" class="skill-link" style="font-size: 1.1rem;">浏览最新装备评测 &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="container">
+            <div class="section-header">
+                <h2>常见问题解答</h2>
+                <p>关于篮球训练、装备选择和场地使用，这里有你关心的答案。</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>初学者应该如何制定训练计划？</h4>
+                    <p>建议先从运球、传球和投篮三项基本功开始，每天坚持30-60分钟的基础训练，每周安排1-2次力量训练。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>篮球鞋应该多久换一双？</h4>
+                    <p>一般来说，如果鞋底磨损严重或缓震性能下降，建议每3-6个月更换一次，以保证运动安全。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>没有球友如何练习？</h4>
+                    <p>可以利用单机训练模式练习运球和投篮，同时可以观看比赛录像分析战术，或加入线上社区寻找球友。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>打篮球前需要做哪些热身？</h4>
+                    <p>必须进行动态热身，包括关节活动（特别是脚踝和膝盖）、慢跑、动态拉伸以及模拟投篮动作的热身。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 20px; display: inline-block;">
+                        我要打篮球<span>.</span>
+                    </a>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        致力于为篮球爱好者提供专业的技术指导、装备资讯和社区交流平台。让每个人都能在球场上找到属于自己的快乐。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">技巧教程</a></li>
+                        <li><a href="#">装备评测</a></li>
+                        <li><a href="#">比赛日历</a></li>
+                        <li><a href="#">球员档案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持与帮助</h4>
+                    <ul>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">用户协议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;">获取最新篮球资讯</p>
+                    <div style="display: flex; gap: 10px;">
+                        <!-- Placeholder for social icons -->
+                        <div style="width: 36px; height: 36px; background: rgba(255,255,255,0.2); border-radius: 50%;"></div>
+                        <div style="width: 36px; height: 36px; background: rgba(255,255,255,0.2); border-radius: 50%;"></div>
+                        <div style="width: 36px; height: 36px; background: rgba(255,255,255,0.2); border-radius: 50%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 我要打篮球. 保留所有权利. 本站内容仅供学习与交流使用。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
