@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="兴山县实验中学官方网站，提供学校概况、招生信息、校园新闻、教育教学成果、校园文化及师生风采展示。">
+    <meta name="keywords" content="兴山县实验中学, 兴山实验中学, 兴山县中学, 实验中学, 兴山教育">
+    <title>兴山县实验中学-校园概况、招生公告与教育教学动态</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #004d40;
+            --secondary-color: #00796b;
+            --accent-color: #ffca28;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f6f8;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-size: 0.85rem;
+            padding: 8px 0;
+            text-align: center;
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url('https://picsum.photos/seed/school/1600/600') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #ffb300;
+            transform: translateY(-2px);
+        }
+
+        /* Quick Links / Info Bar */
+        .info-bar {
+            background-color: var(--white);
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 30px;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 0 15px;
+            border-right: 1px solid #eee;
+        }
+
+        .info-item:last-child {
+            border-right: none;
+        }
+
+        .info-item h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* News Section */
+        .news-section {
+            background-color: var(--white);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Features / Departments */
+        .features-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .features-section .section-title h2 {
+            color: var(--white);
+        }
+
+        .features-section .section-title p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: background 0.3s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .feature-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Sidebar Layout for Admissions & Teachers */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .admission-list {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .admission-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .admission-item:last-child {
+            border-bottom: none;
+        }
+
+        .admission-item strong {
+            color: var(--primary-color);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-card h4 {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .teacher-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .teacher-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .teacher-info h5 {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .teacher-info span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263238;
+            color: #b0bec5;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-grid, .split-layout, .info-bar {
+                grid-template-columns: 1fr;
+            }
+            .info-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .info-item {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            .info-item:last-child {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-main nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            .header-main nav.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-top">
+        欢迎访问兴山县实验中学官方网站！
+    </div>
+
+    <header>
+        <div class="container header-main">
+            <a href="#" class="logo">
+                <span>实验</span> 兴山县实验中学
+            </a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#about">学校概况</a></li>
+                    <li><a href="#news">校园新闻</a></li>
+                    <li><a href="#admissions">招生信息</a></li>
+                    <li><a href="#teachers">师资队伍</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>立德树人 求实创新</h1>
+            <p>兴山县实验中学致力于培养具有社会责任感、创新精神和实践能力的优秀人才。</p>
+            <a href="#about" class="btn">了解更多</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="info-bar">
+            <div class="info-item">
+                <h3>1200+</h3>
+                <p>在校学生</p>
+            </div>
+            <div class="info-item">
+                <h3>80+</h3>
+                <p>教职工队伍</p>
+            </div>
+            <div class="info-item">
+                <h3>35+</h3>
+                <p>教学班级</p>
+            </div>
+            <div class="info-item">
+                <h3>100%</h3>
+                <p>升学率</p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>学校概况</h2>
+                    <p>About Our School</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>兴山县实验中学简介</h3>
+                        <p>兴山县实验中学创办于20世纪90年代，是兴山县教育局直属的一所全日制完全中学。学校坐落于风景秀丽的兴山县城，占地面积约50亩，环境优美，设施齐全。</p>
+                        <p>多年来，学校秉承“厚德、博学、求真、创新”的校训，坚持走素质教育之路。学校拥有一支师德高尚、业务精湛的教师队伍，其中高级教师占比达40%，多名教师在省市级教学比赛中获奖。</p>
+                        <p>在办学理念上，我们注重学生的全面发展，开设了丰富多彩的校本课程和社团活动，包括科技创新、艺术体育、文学创作等多个领域，为学生提供了广阔的成长平台。</p>
+                        <a href="#" style="color: var(--secondary-color); font-weight: bold;">查看历史沿革 &rarr;</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://picsum.photos/seed/school_building/600/400" alt="兴山县实验中学教学楼">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="section news-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>校园新闻</h2>
+                    <p>School News</p>
+                </div>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="https://picsum.photos/seed/news1/400/300" alt="校园运动会">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">2023-10-24</span>
+                            <h4>我校成功举办2023年秋季田径运动会</h4>
+                            <p>为丰富校园文化生活，增强学生体质，学校于近日举行了秋季田径运动会，展现了实验中学学子积极向上的精神风貌。</p>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="https://picsum.photos/seed/news2/400/300" alt="教研活动">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">2023-10-18</span>
+                            <h4>开展“高效课堂”主题教研活动</h4>
+                            <p>教务处组织全体教师开展“高效课堂”教学研讨，旨在进一步提升课堂教学质量，促进教师专业成长。</p>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="https://picsum.photos/seed/news3/400/300" alt="红色教育">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">2023-10-05</span>
+                            <h4>开展“红色文化进校园”主题教育活动</h4>
+                            <p>为传承红色基因，学校邀请老党员进校园，为同学们讲述革命故事，激发爱国热情。</p>
+                        </div>
+                    </article>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#" class="btn" style="background-color: transparent; border: 2px solid var(--primary-color); color: var(--primary-color);">查看更多新闻</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section features-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>办学特色</h2>
+                    <p>Characteristics of Education</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h4>书香校园</h4>
+                        <p>建设阅览室与图书角，举办读书节活动，营造浓厚的阅读氛围。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔬</div>
+                        <h4>科技创新</h4>
+                        <p>开设创客实验室，组织机器人社团，培养青少年科学探索精神。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚽</div>
+                        <h4>阳光体育</h4>
+                        <p>保证每天一小时体育活动时间，组建足篮排球队，增强学生体质。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h4>艺术熏陶</h4>
+                        <p>开设美术、音乐等选修课程，举办艺术节，提升学生审美素养。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admissions & Teachers -->
+        <section id="admissions" class="section">
+            <div class="container">
+                <div class="split-layout">
+                    <div class="admission-list">
+                        <div class="section-title" style="text-align: left; margin-bottom: 20px;">
+                            <h2>招生公告</h2>
+                            <p>Admissions Information</p>
+                        </div>
+                        <div class="admission-item">
+                            <strong>2024年初中部招生简章</strong>
+                            <span style="color: #999;">2024-03-15</span>
+                        </div>
+                        <div class="admission-item">
+                            <strong>关于做好秋季开学工作的通知</strong>
+                            <span style="color: #999;">2024-08-20</span>
+                        </div>
+                        <div class="admission-item">
+                            <strong>校园开放日安排</strong>
+                            <span style="color: #999;">2024-04-10</span>
+                        </div>
+                        <div class="admission-item">
+                            <strong>特长生招生测试方案</strong>
+                            <span style="color: #999;">2024-05-05</span>
+                        </div>
+                    </div>
+
+                    <aside id="teachers">
+                        <div class="sidebar-card">
+                            <div class="section-title" style="text-align: left; margin-bottom: 20px;">
+                                <h2>名师风采</h2>
+                                <p>Featured Teachers</p>
+                            </div>
+                            <ul class="teacher-list">
+                                <li>
+                                    <img src="https://picsum.photos/seed/t1/100/100" alt="教师头像" class="teacher-avatar">
+                                    <div class="teacher-info">
+                                        <h5>李明华</h5>
+                                        <span>数学高级教师</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="https://picsum.photos/seed/t2/100/100" alt="教师头像" class="teacher-avatar">
+                                    <div class="teacher-info">
+                                        <h5>王淑芬</h5>
+                                        <span>语文骨干教师</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="https://picsum.photos/seed/t3/100/100" alt="教师头像" class="teacher-avatar">
+                                    <div class="teacher-info">
+                                        <h5>张建国</h5>
+                                        <span>物理特级教师</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="sidebar-card" style="background-color: var(--secondary-color); color: white;">
+                            <h4 style="color: white; border-color: var(--accent-color);">联系我们</h4>
+                            <p>电话：0717-XXXXXXX</p>
+                            <p>地址：湖北省宜昌市兴山县高阳镇</p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        兴山县实验中学是一所充满活力的学校，我们致力于为每一位学生提供优质的教育资源和成长空间。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">校长信箱</a></li>
+                        <li><a href="#">师德师风建设</a></li>
+                        <li><a href="#">安全警示教育</a></li>
+                        <li><a href="#">学生资助政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>栏目导航</h4>
+                    <ul>
+                        <li><a href="#">学校概况</a></li>
+                        <li><a href="#">教育教学</a></li>
+                        <li><a href="#">德育工作</a></li>
+                        <li><a href="#">后勤服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>联系方式</h4>
+                    <p>📍 湖北省宜昌市兴山县高阳镇</p>
+                    <p>📞 0717-XXXXXXX</p>
+                    <p>📧 admin@xingshanex.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 兴山县实验中学 版权所有 | 备案号：鄂ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
