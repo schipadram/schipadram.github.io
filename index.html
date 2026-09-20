@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="浙地珠宝官方首页，提供高品质钻石、黄金、翡翠及定制首饰服务。汇聚浙江本地匠心工艺，打造传世经典珠宝，支持在线预约试戴与定制服务。">
+    <meta name="keywords" content="浙地珠宝, 浙江珠宝店, 钻石戒指, 黄金首饰, 翡翠定制, 高端珠宝">
+    <title>浙地珠宝-浙江高端珠宝定制与选购指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-dark: #1a1a1a;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-gold);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #bfa030;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-gold);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: #ccc;
+            font-size: 0.85rem;
+            padding: 0.5rem 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-gold);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-gold);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://picsum.photos/seed/jewelryhero/1920/1080.jpg') center/cover no-repeat;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Features */
+        .features {
+            padding: 4rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 5rem 0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .category-item {
+            position: relative;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 2rem 1.5rem;
+            color: var(--white);
+        }
+
+        .category-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Product Showcase */
+        .products {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            height: 300px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--primary-gold);
+            color: var(--white);
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            border-radius: 2px;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .product-price {
+            color: var(--primary-gold);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Service Process */
+        .process {
+            padding: 5rem 0;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #e0e0e0;
+            z-index: 0;
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border: 2px solid var(--primary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            font-weight: bold;
+        }
+
+        .step h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .faq-question:hover {
+            background-color: #f5f5f5;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-gold);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: #ccc;
+            padding: 4rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                display: none;
+                margin-top: 1rem;
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-steps {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>欢迎来到浙地珠宝，专业定制您的专属光芒</span>
+            <div class="contact-info">
+                <span>服务热线：400-123-4567</span>
+                <span style="margin: 0 10px;">|</span>
+                <span>工作时间：周一至周日 9:00-21:00</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span>◆</span> 浙地珠宝
+            </a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#categories">珠宝分类</a></li>
+                    <li><a href="#showcase">新品推荐</a></li>
+                    <li><a href="#custom">定制服务</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;">登录</a>
+                <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem;">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>浙地珠宝</h1>
+            <p>传承匠心工艺，甄选全球臻品。为您提供钻石、黄金、翡翠及婚嫁珠宝的个性化定制方案。</p>
+            <a href="#showcase" class="btn btn-primary">探索系列</a>
+            <a href="#custom" class="btn btn-outline" style="margin-left: 1rem; border-color: #fff; color: #fff;">在线定制</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>天然宝石</h3>
+                    <p>所有钻石与宝石均提供权威GIA/NGTC证书，确保天然真品。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>大师设计</h3>
+                    <p>汇聚浙江本土及国际珠宝设计师团队，打造独一无二的原创设计。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>终身质保</h3>
+                    <p>提供专业的清洗、保养及以旧换新服务，让爱意长久闪耀。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>顺丰包邮</h3>
+                    <p>支持全国顺丰包邮配送，专业珠宝盒包装，隐私安全有保障。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>精选珠宝分类</h2>
+                <p>按材质与风格寻找属于您的璀璨</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/diamond/400/500.jpg" alt="钻石戒指">
+                    <div class="category-overlay">
+                        <h3>钻石戒指</h3>
+                        <p>闪耀永恒，见证真爱</p>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/gold/400/500.jpg" alt="黄金首饰">
+                    <div class="category-overlay">
+                        <h3>黄金首饰</h3>
+                        <p>传承经典，富贵吉祥</p>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/emerald/400/500.jpg" alt="翡翠玉石">
+                    <div class="category-overlay">
+                        <h3>翡翠玉石</h3>
+                        <p>温润如水，东方神韵</p>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/necklace/400/500.jpg" alt="项链吊坠">
+                    <div class="category-overlay">
+                        <h3>项链吊坠</h3>
+                        <p>点缀颈间，优雅迷人</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="showcase" class="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>当季热销</h2>
+                <p>深受客户喜爱的浙地珠宝精选款式</p>
+            </div>
+            <div class="product-grid">
+                <article class="product-card">
+                    <div class="product-image">
+                        <span class="product-tag">新品</span>
+                        <img src="https://picsum.photos/seed/ring1/400/400.jpg" alt="经典六爪钻戒">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">婚嫁系列</div>
+                        <h3 class="product-title">经典六爪钻戒 1.0ct</h3>
+                        <div class="product-price">¥ 28,800</div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/ring2/400/400.jpg" alt="素圈对戒">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">对戒系列</div>
+                        <h3 class="product-title">素圈对戒 18K金</h3>
+                        <div class="product-price">¥ 3,580</div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <span class="product-tag">热卖</span>
+                        <img src="https://picsum.photos/seed/necklace1/400/400.jpg" alt="S925纯银项链">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">时尚饰品</div>
+                        <h3 class="product-title">S925纯银锁骨链</h3>
+                        <div class="product-price">¥ 880</div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/bracelet/400/400.jpg" alt="黄金手链">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">黄金系列</div>
+                        <h3 class="product-title">古法黄金手链</h3>
+                        <div class="product-price">¥ 5,200</div>
+                    </div>
+                </article>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" class="btn btn-outline">查看全部商品</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customization Process -->
+    <section id="custom" class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>定制服务流程</h2>
+                <p>从设计到成品，全程专业指导</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon">01</div>
+                    <h4>在线咨询</h4>
+                    <p>通过电话或在线客服沟通您的需求、预算与设计灵感。</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">02</div>
+                    <h4>方案设计</h4>
+                    <p>设计师出具3D效果图，您确认无误后进入选材阶段。</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">03</div>
+                    <h4>精细制作</h4>
+                    <p>由经验丰富的技师在严格质检下进行镶嵌与打磨。</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">04</div>
+                    <h4>验收交付</h4>
+                    <p>您到店验收实物，满意后享受终身免费清洗保养服务。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题</h2>
+                <p>解答您关于浙地珠宝的疑问</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        购买钻石是否提供权威证书？
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>是的，我们所有裸钻均提供GIA（美国宝石学院）或NGTC（国家珠宝玉石质量监督检验中心）出具的权威鉴定证书，确保钻石的4C等级真实可靠。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        支持异地定制吗？
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>完全支持。您可以通过微信发送设计需求，我们提供免费的3D效果图预览服务。制作完成后，可安排顺丰快递包邮寄送至您所在的城市。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        如果不喜欢定制的款式可以退款吗？
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>在未开始制作（未开模或未镶嵌）之前，您可以申请全额退款。一旦进入制作阶段，因个人审美原因的退换货将根据具体损耗情况协商处理。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>浙地珠宝</h4>
+                    <p style="margin-bottom: 1rem;">专注高端珠宝定制服务十年，致力于为浙江及周边地区客户提供专业、诚信的珠宝选购与定制体验。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">新品上市</a></li>
+                        <li><a href="#">设计师招募</a></li>
+                        <li><a href="#">会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务项目</h4>
+                    <ul>
+                        <li><a href="#">钻石定制</a></li>
+                        <li><a href="#">黄金回收</a></li>
+                        <li><a href="#">以旧换新</a></li>
+                        <li><a href="#">珠宝清洗</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>地址：浙江省杭州市上城区延安路珠宝城A座888号</li>
+                        <li>电话：400-123-4567</li>
+                        <li>邮箱：service@zhedi-jewelry.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 浙地珠宝 版权所有 | 浙ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('open');
+        }
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const wasActive = item.classList.contains('active');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
+                faq.querySelector('.faq-question span').textContent = '+';
+            });
+
+            // Toggle clicked FAQ
+            if (!wasActive) {
+                item.classList.add('active');
+                element.querySelector('span').textContent = '-';
+            }
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('main-nav').classList.remove('open');
+            });
+        });
+    </script>
+</body>
+                      </html>
