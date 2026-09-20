@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="狼客网站提供专业的网络安全资讯、黑客技术科普、红蓝对抗实战案例及安全工具下载。致力于为安全从业者提供深度的技术交流与资源分享平台。">
+    <meta name="keywords" content="狼客网站,网络安全,黑客技术,渗透测试,CTF,红蓝对抗,安全资讯">
+    <title>狼客网站-网络安全技术深度交流与实战平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00ff41; /* Matrix Green */
+            --bg-color: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-muted: #888;
+            --border-color: #333;
+            --accent-color: #008f11;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(13, 13, 13, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 255, 65, 0.1);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #000;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: #00cc33;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(0,20,0,0) 0%, var(--bg-color) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 50% 50%, rgba(0, 255, 65, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: var(--primary-color);
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 22px;
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+
+        /* Article Cards */
+        .article-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            border-color: var(--primary-color);
+        }
+
+        .article-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #000;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .article-meta span i {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        .article-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .article-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .article-excerpt {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            border-top: 1px solid #2a2a2a;
+            padding-top: 15px;
+        }
+
+        .tags span {
+            background: #222;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            color: #ccc;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .widget-title::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .hot-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #333;
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .hot-list a {
+            display: block;
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        .hot-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .hot-list .rank {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 8px;
+            font-family: monospace;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .tool-item {
+            background: #222;
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .tool-item:hover {
+            background: #333;
+        }
+
+        .tool-item span {
+            display: block;
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .tool-item strong {
+            display: block;
+            font-size: 13px;
+            color: var(--primary-color);
+            margin-top: 4px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(45deg, #1a1a1a, #0d1f0d);
+            padding: 60px 0;
+            text-align: center;
+            margin: 50px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cta-section h2 {
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            padding: 60px 0 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">&lt;狼客<span>网站</span> /&gt;</a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">技术资讯</a></li>
+                    <li><a href="#">工具下载</a></li>
+                    <li><a href="#">漏洞挖掘</a></li>
+                    <li><a href="#">安全社区</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">加入我们</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>探索网络安全的<span>未知边界</span></h1>
+                <p>狼客网站致力于为安全研究员、渗透测试工程师及极客爱好者提供深度的技术分享、前沿漏洞情报及实用的安全工具。在这里，代码是语言，漏洞是机遇。</p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="#" class="btn btn-primary">开始探索</a>
+                    <a href="#" class="btn btn-outline">提交漏洞</a>
+                </div>
+                
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <h3>10k+</h3>
+                        <p>安全文章</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5k+</h3>
+                        <p>实战工具</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50k+</h3>
+                        <p>注册会员</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="main-grid">
+                <!-- Left Column: Content -->
+                <div class="content-area">
+                    <div class="section-header">
+                        <h2>最新技术资讯</h2>
+                        <a href="#" class="view-all">查看更多 &rarr;</a>
+                    </div>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/hack1/800/400" alt="网络攻防示意图" class="article-img">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span><i>&#9889;</i> 渗透测试</span>
+                                <span><i>&#128337;</i> 2023-10-24</span>
+                            </div>
+                            <h3 class="article-title"><a href="#">深入解析现代Web应用的零日漏洞挖掘思路</a></h3>
+                            <p class="article-excerpt">随着前端技术的复杂化，传统的Burp Suite扫描往往难以发现深层逻辑漏洞。本文将结合实际案例，探讨如何利用Fuzzing技术结合API逆向分析，发现隐藏的业务逻辑缺陷...</p>
+                            <div class="article-footer">
+                                <div class="tags">
+                                    <span>Web安全</span>
+                                    <span>漏洞挖掘</span>
+                                </div>
+                                <a href="#" style="color:var(--text-muted)">阅读全文</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/hack2/800/400" alt="CTF竞赛现场" class="article-img">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span><i>&#9889;</i> CTF比赛</span>
+                                <span><i>&#128337;</i> 2023-10-22</span>
+                            </div>
+                            <h3 class="article-title"><a href="#">2023年秋季CTF Pwn题解与栈溢出攻击复盘</a></h3>
+                            <p class="article-excerpt">在最近的校内CTF决赛中，Pwn赛道成为了最大的分水岭。本文详细复盘了两道经典的栈溢出题目，讲解了ROP链的构造技巧以及如何绕过现代操作系统的NX保护机制...</p>
+                            <div class="article-footer">
+                                <div class="tags">
+                                    <span>Pwn</span>
+                                    <span>CTF</span>
+                                </div>
+                                <a href="#" style="color:var(--text-muted)">阅读全文</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/hack3/800/400" alt="数据安全防护" class="article-img">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span><i>&#9889;</i> 数据安全</span>
+                                <span><i>&#128337;</i> 2023-10-20</span>
+                            </div>
+                            <h3 class="article-title"><a href="#">企业级数据防泄露系统的部署与配置指南</a></h3>
+                            <p class="article-excerpt">面对日益严峻的内部威胁，企业如何构建有效的DLP体系？本文从技术架构、策略配置及审计日志三个维度，提供了一套可落地的DLP系统搭建方案...</p>
+                            <div class="article-footer">
+                                <div class="tags">
+                                    <span>内网安全</span>
+                                    <span>DLP</span>
+                                </div>
+                                <a href="#" style="color:var(--text-muted)">阅读全文</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Right Column: Sidebar -->
+                <aside class="sidebar">
+                    <!-- Hot Topics -->
+                    <div class="sidebar-widget">
+                        <div class="widget-title">热门话题</div>
+                        <ul class="hot-list">
+                            <li>
+                                <a href="#">
+                                    <span class="rank">01</span>
+                                    <span>Log4j2 远程代码执行漏洞深度分析</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="rank">02</span>
+                                    <span>如何成为一名合格的白帽子黑客？</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="rank">03</span>
+                                    <span>Windows 内核漏洞利用实战笔记</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="rank">04</span>
+                                    <span>Python 自动化渗透测试脚本编写</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="rank">05</span>
+                                    <span>企业蓝队应急响应流程标准化</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tools -->
+                    <div class="sidebar-widget">
+                        <div class="widget-title">精选工具</div>
+                        <div class="tool-grid">
+                            <div class="tool-item">
+                                <span>端口扫描</span>
+                                <strong>Nmap</strong>
+                            </div>
+                            <div class="tool-item">
+                                <span>密码爆破</span>
+                                <strong>Hydra</strong>
+                            </div>
+                            <div class="tool-item">
+                                <span>流量分析</span>
+                                <strong>Wireshark</strong>
+                            </div>
+                            <div class="tool-item">
+                                <span>抓包改包</span>
+                                <strong>Burp Suite</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ad Placeholder (Styled as content) -->
+                    <div class="sidebar-widget" style="background: #111; border-color: #333; display: flex; align-items: center; justify-content: center; height: 200px; color: #555; font-size: 14px;">
+                        <div style="text-align: center;">
+                            <p>广告位招租</p>
+                            <p style="font-size: 12px; margin-top: 5px;">合作请联系管理员</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>准备好提升你的技能了吗？</h2>
+                <p>加入狼客社区，与数万名安全专家一起交流心得，参与实战演练，获取第一手的安全情报。</p>
+                <a href="#" class="btn btn-primary">立即注册会员</a>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="container">
+            <div class="section-header">
+                <h2>资源分类</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <a href="#" class="article-card" style="padding: 30px; text-align: center; margin-bottom: 0; border: 1px dashed var(--border-color);">
+                    <div style="font-size: 30px; color: var(--primary-color); margin-bottom: 10px;">&#128187;</div>
+                    <h3>Web安全</h3>
+                    <p style="font-size: 13px; color: #666; margin-top: 5px;">XSS, CSRF, SQL注入等</p>
+                </a>
+                <a href="#" class="article-card" style="padding: 30px; text-align: center; margin-bottom: 0; border: 1px dashed var(--border-color);">
+                    <div style="font-size: 30px; color: var(--primary-color); margin-bottom: 10px;">&#128247;</div>
+                    <h3>二进制安全</h3>
+                    <p style="font-size: 13px; color: #666; margin-top: 5px;">Pwn, Reverse, Kernel</p>
+                </a>
+                <a href="#" class="article-card" style="padding: 30px; text-align: center; margin-bottom: 0; border: 1px dashed var(--border-color);">
+                    <div style="font-size: 30px; color: var(--primary-color); margin-bottom: 10px;">&#128187;</div>
+                    <h3>移动安全</h3>
+                    <p style="font-size: 13px; color: #666; margin-top: 5px;">App逆向, 证书绑定</p>
+                </a>
+                <a href="#" class="article-card" style="padding: 30px; text-align: center; margin-bottom: 0; border: 1px dashed var(--border-color);">
+                    <div style="font-size: 30px; color: var(--primary-color); margin-bottom: 10px;">&#128276;</div>
+                    <h3>物联网安全</h3>
+                    <p style="font-size: 13px; color: #666; margin-top: 5px;">IoT渗透, 智能设备</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="font-size: 20px; display: block; margin-bottom: 15px;">&lt;狼客<span>网站</span> /&gt;</a>
+                    <p>狼客网站是一个专注于网络安全技术的开放社区。我们坚持分享真实的技术见解，拒绝注水内容，致力于构建一个纯粹的技术交流空间。</p>
+                    <p style="color: var(--primary-color); font-size: 12px;">Safe & Secure</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">加入团队</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>技术栏目</h4>
+                    <ul>
+                        <li><a href="#">Web渗透</a></li>
+                        <li><a href="#">内网安全</a></li>
+                        <li><a href="#">逆向工程</a></li>
+                        <li><a href="#">CTF比赛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博安全圈</a></li>
+                        <li><a href="#">Github源码</a></li>
+                        <li><a href="#">Telegram频道</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 狼客网站 版权所有 | 仅供学习交流使用，请勿用于非法用途
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
