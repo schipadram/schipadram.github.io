@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三国梦想无惨 - 霸业与命运的终极对决</title>
+    <meta name="description" content="三国梦想无惨专题页，汇聚《三国梦想》同人改写与无惨线剧情深度解析。探索曹操、刘备等英雄在无惨体质下的权谋博弈与修罗战场，提供角色攻略、同人作品推荐及世界观解读。">
+    <meta name="keywords" content="三国梦想无惨, 三国同人, 无惨线, 三国志, 漫画, 角色攻略">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0f0f12;
+            --bg-card: #1a1a20;
+            --primary-red: #c0392b;
+            --primary-gold: #d4af37;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #333;
+            --font-stack: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 15, 18, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-gold);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-gold);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(15, 15, 18, 0.3), var(--bg-dark)), 
+                        url('https://picsum.photos/seed/sanguo_hero/1920/1080.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 90%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 5px 15px;
+            font-size: 14px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            background: linear-gradient(45deg, #fff, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-gold);
+            color: #000;
+            font-weight: bold;
+            border-radius: 2px;
+            transition: transform 0.2s, background-color 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #f1c40f;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-gold);
+            color: var(--primary-gold);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-gold);
+            color: #000;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--primary-red);
+            padding-left: 20px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Feature Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--primary-gold);
+        }
+
+        .card-img {
+            height: 200px;
+            width: 100%;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Character Spotlight */
+        .char-spotlight {
+            display: flex;
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .char-img {
+            flex: 1;
+            min-height: 400px;
+            background: url('https://picsum.photos/seed/caocao/800/800.jpg') center/cover no-repeat;
+        }
+
+        .char-info {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .char-role {
+            color: var(--primary-red);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .char-name {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: "KaiTi", serif; /* Calligraphic feel */
+        }
+
+        .char-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-val {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-gold);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Storyline Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid #333;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--bg-dark);
+            border: 2px solid var(--primary-red);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .timeline-item:hover::before {
+            background-color: var(--primary-red);
+        }
+
+        .timeline-date {
+            font-size: 14px;
+            color: var(--primary-gold);
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            margin-bottom: 10px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .faq-question:hover {
+            background-color: #25252b;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px 20px;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-gold);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-color);
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #1a1a1a;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+
+            .char-spotlight {
+                flex-direction: column;
+            }
+
+            .char-img {
+                min-height: 250px;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>三</span>国梦想无惨
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#plot">无惨线剧情</a></li>
+                    <li><a href="#characters">角色解析</a></li>
+                    <li><a href="#gallery">同人画廊</a></li>
+                    <li><a href="#faq">常见问答</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">同人改写 · 剧情向</span>
+                <h1>霸业与命运的终极对决</h1>
+                <p>当三国英雄遭遇永生的诅咒，当权谋博弈遇上血族法则。探索《三国梦想》同人宇宙中最为黑暗、最为宏大的“无惨线”剧情，见证英雄如何在绝望中挣扎求生。</p>
+                <div>
+                    <button class="btn" onclick="document.getElementById('plot').scrollIntoView({behavior: 'smooth'})">阅读剧情</button>
+                    <button class="btn btn-outline" onclick="document.getElementById('characters').scrollIntoView({behavior: 'smooth'})">查看角色</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 28px; margin-bottom: 20px; color: var(--text-main);">什么是“无惨线”？</h2>
+                <p style="color: var(--text-muted);">
+                    在《三国梦想》的同人设定中，“无惨线”是指角色因特定事件（如获得神秘力量、遭遇意外）而觉醒了类似《鬼灭之刃》中上弦之鬼·鬼舞辻无惨的体质。这一变体并非单纯的升级，而是彻底改变了角色的道德观、战斗方式以及对生命的定义。在这个平行世界中，赤壁的火不再是烧尽曹军的烈焰，而是延续无数亡魂的永恒祭礼。
+                </p>
+            </div>
+        </section>
+
+        <!-- Plot Timeline -->
+        <section id="plot">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">无惨线关键节点</h2>
+                        <span class="section-subtitle">从觉醒到决战的历史转折</span>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">公元 196年 · 赤壁之变前夕</div>
+                        <h3 class="timeline-title">初生之恶：曹操的觉醒</h3>
+                        <p style="color: var(--text-muted);">曹操在赤壁战役中遭遇惨败，于绝境中被神秘邪气侵蚀。他不仅没有死亡，反而获得了永生的肉体。从此，他不再追求统一天下，而是将目光投向了更永恒的权力与血肉之躯的进化。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">公元 220年 · 洛阳黄昏</div>
+                        <h3 class="timeline-title">汉室的崩塌与刘备的沉沦</h3>
+                        <p style="color: var(--text-muted);">刘备得知兄长关羽被“鬼化”势力所杀，悲愤之下强行突破境界，成为了一名嗜血的修罗。刘备、曹操、孙权三方势力在洛阳城下展开了一场不死者的厮杀。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">公元 263年 · 姜维的逆天改命</div>
+                        <h3 class="timeline-title">最后的希望：九伐中原</h3>
+                        <p style="color: var(--text-muted);">面对已成气候的“鬼族”势力，姜维试图通过斩杀所有鬼族来终结诅咒。这是人类最后的反击，也是无惨线剧情中最悲壮的高潮。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Character Spotlight -->
+        <section id="characters" style="background-color: #141418;">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">核心角色档案</h2>
+                        <span class="section-subtitle">解析无惨体质下的英雄本色</span>
+                    </div>
+                </div>
+
+                <div class="char-spotlight">
+                    <div class="char-img"></div>
+                    <div class="char-info">
+                        <div class="char-role">魏 · 鬼王</div>
+                        <h3 class="char-name">曹操</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">
+                            原本一世之雄，在获得无惨体质后，他成为了统御北方鬼域的霸主。他拥有极高的智慧和强大的再生能力，能够通过吞噬高阶武将的血液来进化自身的血鬼术。他的目标不是征服，而是寻找能够彻底斩断诅咒的“太阳之火”。
+                        </p>
+                        <div class="char-stats">
+                            <div class="stat-item">
+                                <span class="stat-val">SSS</span>
+                                <span class="stat-label">再生速度</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-val">A</span>
+                                <span class="stat-label">敏捷</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-val">EX</span>
+                                <span class="stat-label">统率力</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" style="width: fit-content;">查看详细能力</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section id="gallery" class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">同人作品精选</h2>
+                    <span class="section-subtitle">粉丝创作中的无惨世界</span>
+                </div>
+            </div>
+
+            <div class="grid-3">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/sanguo1/400/300.jpg" alt="曹操血鬼术">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">同人漫画 · 第42话</div>
+                        <h3 class="card-title">孟德之血：血鬼术“倚天斩”</h3>
+                        <p class="card-desc">解析曹操如何将倚天剑的锋利与鬼族的血液结合，创造出无视防御的斩击。</p>
+                        <div class="card-footer">
+                            <span>阅读量: 12.5k</span>
+                            <a href="#" style="color: var(--primary-gold);">详情 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/sanguo2/400/300.jpg" alt="赵云vs鬼族">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">插画 · 剧情图</div>
+                        <h3 class="card-title">子龙战无惨：龙胆的极限</h3>
+                        <p class="card-desc">赵云在绝境中爆发出的潜能，试图用纯粹的武艺斩杀不朽的鬼族。</p>
+                        <div class="card-footer">
+                            <span>阅读量: 8.9k</span>
+                            <a href="#" style="color: var(--primary-gold);">详情 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/sanguo3/400/300.jpg" alt="三英战吕布">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">同人小说 · 剧情卷</div>
+                        <h3 class="card-title">虎牢关：不死者的试炼</h3>
+                        <p class="card-desc">吕布是否也觉醒了？三英在虎牢关面对的不再是凡人，而是超越常理的怪物。</p>
+                        <div class="card-footer">
+                            <span>阅读量: 15.2k</span>
+                            <a href="#" style="color: var(--primary-gold);">详情 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <div class="container" style="max-width: 800px;">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题解答</h2>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">三国梦想无惨与原版有什么区别？</div>
+                        <div class="faq-answer">
+                            原版侧重于历史演义与军事策略，而无惨线则引入了超自然元素（血鬼术、不死体质），将战争转化为生存与进化的残酷游戏，角色的动机也发生了根本性改变。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">无惨线剧情是官方设定的吗？</div>
+                        <div class="faq-answer">
+                            目前该设定主要存在于同人创作、粉丝二设及特定的游戏MOD版本中，并非官方正史。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何参与无惨线同人创作？</div>
+                        <div class="faq-answer">
+                            欢迎在各大同人论坛发布您的作品。建议先阅读现有的世界观设定，保持角色性格的一致性，并注意平台的内容发布规范。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于本站</h4>
+                    <p>三国梦想无惨专题致力于为同人爱好者提供一个分享、讨论和欣赏“无惨线”同人作品的平台。我们尊重原著精神，并鼓励基于原作的创造性发挥。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">剧情解析</a></li>
+                        <li><a href="#">角色图鉴</a></li>
+                        <li><a href="#">同人投稿</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">三国志正版游戏</a></li>
+                        <li><a href="#">鬼灭之刃Wiki</a></li>
+                        <li><a href="#">同人漫画天堂</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 三国梦想无惨同人站. All Rights Reserved. 本站内容均为用户上传，仅供学习交流使用。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close others
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
